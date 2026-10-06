@@ -1,6 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { createServerClient } from "@supabase/ssr";
 import { INTERNAL_ADMIN_PREFIX, normalizeAdminPath } from "@/lib/admin-path";
+import { normalizeSupabaseUrl } from "@/lib/supabase-url";
 
 /**
  * Proxy (antes "middleware"):
@@ -43,7 +44,7 @@ export async function proxy(request: NextRequest) {
   response.headers.set("X-Robots-Tag", "noindex, nofollow");
   response.headers.set("Cache-Control", "no-store");
 
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const url = normalizeSupabaseUrl(process.env.NEXT_PUBLIC_SUPABASE_URL);
   const key =
     process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ?? process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
   if (!url || !key) {

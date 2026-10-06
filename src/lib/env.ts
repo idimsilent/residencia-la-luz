@@ -1,4 +1,5 @@
 import "server-only";
+import { normalizeSupabaseUrl } from "./supabase-url";
 
 /**
  * Variables de entorno del servidor. Nunca importar desde componentes cliente.
@@ -12,7 +13,7 @@ function read(name: string): string | undefined {
 }
 
 export const env = {
-  supabaseUrl: read("NEXT_PUBLIC_SUPABASE_URL"),
+  supabaseUrl: normalizeSupabaseUrl(read("NEXT_PUBLIC_SUPABASE_URL")),
   supabasePublishableKey:
     read("NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY") ?? read("NEXT_PUBLIC_SUPABASE_ANON_KEY"),
   supabaseSecretKey: read("SUPABASE_SECRET_KEY") ?? read("SUPABASE_SERVICE_ROLE_KEY"),
