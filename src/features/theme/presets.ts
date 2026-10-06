@@ -1,0 +1,97 @@
+import type { ThemeTokens } from "./schema";
+
+/** Tema por defecto: verde salvia, blanco cálido, beige y texto oscuro. */
+export const SALVIA_THEME: ThemeTokens = {
+  version: 1,
+  colors: {
+    primary: "#5f7d63",
+    primaryContrast: "#ffffff",
+    secondary: "#e9e1d3",
+    accent: "#c08a5b",
+    background: "#fbf8f3",
+    surface: "#ffffff",
+    surfaceAlt: "#f3eee5",
+    text: "#2b2f2a",
+    textMuted: "#5d625b",
+    border: "#e3dccf",
+    buttonBg: "#5f7d63",
+    buttonText: "#ffffff",
+    headerBg: "#fbf8f3",
+    headerText: "#2b2f2a",
+    footerBg: "#2f3a31",
+    footerText: "#eef0ea",
+  },
+  typography: {
+    headingFont: "fraunces",
+    bodyFont: "nunito-sans",
+    baseSize: 17,
+    headingScale: 1.25,
+    headingWeight: "600",
+  },
+  shape: { radius: 18, shadow: "soft", spacing: "normal", contentWidth: "normal" },
+  components: {
+    buttonStyle: "pill",
+    cardStyle: "elevated",
+    headerLayout: "classic",
+    headerSticky: true,
+    menuStyle: "underline",
+    footerLayout: "columns",
+    galleryStyle: "mosaic",
+    newsCardStyle: "feed",
+    blockStyle: "open",
+  },
+};
+
+export const PRESET_THEMES: { name: string; tokens: ThemeTokens }[] = [
+  { name: "Salvia cálida", tokens: SALVIA_THEME },
+  {
+    name: "Arena y terracota",
+    tokens: {
+      ...SALVIA_THEME,
+      colors: {
+        ...SALVIA_THEME.colors,
+        primary: "#9a5b3c",
+        buttonBg: "#9a5b3c",
+        secondary: "#efe4d6",
+        accent: "#6f8a6a",
+        background: "#fcf7f1",
+        surfaceAlt: "#f5ebdf",
+        headerBg: "#fcf7f1",
+        footerBg: "#3b2e27",
+        footerText: "#f6efe8",
+      },
+      typography: { ...SALVIA_THEME.typography, headingFont: "lora", bodyFont: "source-sans" },
+      shape: { ...SALVIA_THEME.shape, radius: 12 },
+      components: { ...SALVIA_THEME.components, buttonStyle: "solid", galleryStyle: "grid" },
+    },
+  },
+  {
+    name: "Azul sereno",
+    tokens: {
+      ...SALVIA_THEME,
+      colors: {
+        ...SALVIA_THEME.colors,
+        primary: "#3f6e8c",
+        buttonBg: "#3f6e8c",
+        secondary: "#e3ebef",
+        accent: "#c99a52",
+        background: "#f8fafb",
+        surfaceAlt: "#edf2f5",
+        border: "#dbe3e8",
+        headerBg: "#ffffff",
+        footerBg: "#22323d",
+        footerText: "#e9f0f4",
+      },
+      typography: { ...SALVIA_THEME.typography, headingFont: "dm-serif", bodyFont: "inter", headingWeight: "500" },
+      shape: { ...SALVIA_THEME.shape, radius: 8, shadow: "medium" },
+      components: {
+        ...SALVIA_THEME.components,
+        buttonStyle: "solid",
+        cardStyle: "bordered",
+        headerLayout: "centered",
+        menuStyle: "pill",
+        newsCardStyle: "cards",
+      },
+    },
+  },
+];
