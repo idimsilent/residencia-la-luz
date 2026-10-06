@@ -224,7 +224,7 @@ export function PageEditor({
                 label="Bloque"
                 onReorder={(list) => update(list.map((b) => blocks.find((x) => x.key === b.id)!))}
                 className="space-y-1.5"
-                itemClassName={cn("rounded-xl border bg-white px-1.5 py-1.5")}
+                itemClassName="rounded-xl border border-stone-200 bg-white px-1.5 py-1.5"
                 renderItem={(b, i) => (
                   <div className={cn("flex items-center gap-1", errors[b.key] && "text-[#912018]")}>
                     <button type="button" onClick={() => setSelected(b.key)} className="min-w-0 flex-1 rounded-md px-1.5 py-1 text-left hover:bg-stone-50">
